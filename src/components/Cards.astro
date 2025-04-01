@@ -1,0 +1,189 @@
+---
+// Cards.astro - 优化后的版本，保持左右交错布局
+import { filterItems } from '../data/content';
+---
+
+<div class="projects-list">
+  <!-- 项目1 - Agora -->
+  <div class="project-row">
+    <div class="project-content left">
+      <div class="project-info">
+        <h2 class="project-title">Agora</h2>
+        <p class="project-desc">A platform connecting students through shared academic interests and resources.</p>
+        <div class="project-tag">UX/UI design</div>
+      </div>
+    </div>
+    <div class="project-media right">
+      <a href="/detail/agora" class="project-link">
+        <div class="project-image">
+          <img src="/assets/cover/cover-agora.jpg" alt="Agora - A platform connecting students" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 项目2 - Manse -->
+  <div class="project-row reverse">
+    <div class="project-content right">
+      <div class="project-info">
+        <h2 class="project-title">Manse</h2>
+        <p class="project-desc">An intelligent feedback bot designed to enhance user experience through personalized interactions.</p>
+        <div class="project-tag">UX/UI design</div>
+      </div>
+    </div>
+    <div class="project-media left">
+      <a href="/detail/manse" class="project-link">
+        <div class="project-image">
+          <img src="/assets/cover/cover-manse.png" alt="Manse - A feedback bot" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 项目3 - Ecjoy -->
+  <div class="project-row">
+    <div class="project-content left">
+      <div class="project-info">
+        <h2 class="project-title">Ecjoy</h2>
+        <p class="project-desc">Discover and join your perfect hobby classes with a seamless, intuitive browsing experience.</p>
+        <div class="project-tag">UI/UX design</div>
+      </div>
+    </div>
+    <div class="project-media right">
+      <a href="/detail/ecjoy" class="project-link">
+        <div class="project-image">
+          <img src="/assets/cover/cover-ecjoy.png" alt="Ecjoy - An application for finding hobby classes" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 项目4 - Buckethead -->
+  <div class="project-row reverse">
+    <div class="project-content right">
+      <div class="project-info">
+        <h2 class="project-title">Buckethead</h2>
+        <p class="project-desc">A playful educational game that combines learning with fun interactive challenges.</p>
+        <div class="project-tag">Game</div>
+      </div>
+    </div>
+    <div class="project-media left">
+      <a href="/detail/buckethead" class="project-link">
+        <div class="project-image">
+          <img src="/assets/cover/cover-buckethead.png" alt="Buckethead - An educational game" />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* 优化的项目展示样式 */
+  .projects-list {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .project-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 120px;
+    gap: 60px;
+  }
+
+  .project-row.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .project-content {
+    flex: 0 0 40%;
+    padding: 0 20px;
+  }
+
+  .project-media {
+    flex: 0 0 55%;
+  }
+
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .project-image:hover img {
+    transform: scale(1.02);
+  }
+
+  .project-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-100);
+  }
+
+  .project-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--color-400);
+  }
+
+  .project-tag {
+    font-size: 0.9rem;
+    color: var(--color-500);
+    display: inline-block;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 1200px) {
+    .project-row {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .project-row, 
+    .project-row.reverse {
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    
+    .project-content,
+    .project-media {
+      flex: 0 0 100%;
+      padding: 0;
+    }
+    
+    .project-title {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .project-title {
+      font-size: 1.5rem;
+    }
+    
+    .project-desc {
+      font-size: 1rem;
+    }
+  }
+</style>
