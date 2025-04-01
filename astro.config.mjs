@@ -25,7 +25,8 @@ export default defineConfig({
     wrap: true,
     }
   },
-  site: 'https://blog-template.606design.art/',
+  site: 'https://angelina-qin.github.io/portfolio//',
+  base: '/portfolio/',
   integrations: [sitemap()],
   css: {
     preprocessorOptions: {
